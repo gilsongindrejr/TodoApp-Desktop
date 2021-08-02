@@ -35,16 +35,6 @@ QPushButton#pushButton_new:hover{
 QPushButton#pushButton_new:pressed{
 	background-color: rgb(78, 125, 6);
 }
-QPushButton#pushButton_remove{
-	border-radius:10px;
-	background-color: rgb(220, 34, 34);
-}
-QPushButton#pushButton_remove:hover{
-	background-color: rgb(212, 26, 26);
-}
-QPushButton#pushButton_remove:pressed{
-	background-color: rgb(201, 15, 15);
-}
 QPushButton#pushButton_logout{
 	border-radius:10px;
 	background-color: rgb(0, 102, 212);
@@ -56,21 +46,12 @@ QPushButton#pushButton_logout:pressed{
 	background-color: rgb(0, 73, 212);
 }
 
-/* Content */
+/* Scroll Area */
 QScrollArea{
 	background-color: rgb(46, 52, 54);
 }
 QWidget#scrollArea_content{
 	background-color: rgb(46, 52, 54);
-}
-QFrame#frame_content{
-	background-color: rgb(56, 62, 64);
-}
-QLineEdit#lineEdit_content{
-	color:white;
-	background-color: rgb(46, 52, 54);
-	border:none;
-	border-bottom:1px solid white;
 }
 
 /* Frames*/
@@ -319,6 +300,25 @@ QWidget#frame_login_main{
              <height>800</height>
             </size>
            </property>
+           <property name="styleSheet">
+            <string notr="true">/* Frame Content */
+QLineEdit{
+	color:white;
+	background-color: rgb(46, 52, 54);
+	border:none;
+	border-bottom:1px solid white;
+}
+QPushButton{
+	border-radius:10px;
+	background-color: rgb(220, 34, 34);
+}
+QPushButton:hover{
+	background-color: rgb(212, 26, 26);
+}
+QPushButton:pressed{
+	background-color: rgb(201, 15, 15);
+}</string>
+           </property>
            <property name="widgetResizable">
             <bool>true</bool>
            </property>
@@ -332,42 +332,45 @@ QWidget#frame_login_main{
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_3">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
              <item alignment="Qt::AlignTop">
-              <widget class="QWidget" name="widget_content" native="true">
-               <property name="minimumSize">
+              <widget class="QFrame" name="frame_content">
+               <property name="maximumSize">
                 <size>
-                 <width>70</width>
+                 <width>16777215</width>
                  <height>70</height>
                 </size>
                </property>
-               <property name="maximumSize">
-                <size>
-                 <width>700</width>
-                 <height>70</height>
-                </size>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_4">
                 <item>
-                 <widget class="QFrame" name="frame_content_line">
-                  <property name="frameShape">
-                   <enum>QFrame::NoFrame</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_7">
-                   <item>
-                    <widget class="QLineEdit" name="lineEdit_content"/>
-                   </item>
-                  </layout>
-                 </widget>
+                 <widget class="QLineEdit" name="line_content"/>
                 </item>
                 <item>
-                 <widget class="QFrame" name="frame_content_btn">
+                 <widget class="QPushButton" name="btn_remove">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
-                    <height>0</height>
+                    <height>50</height>
                    </size>
                   </property>
                   <property name="maximumSize">
@@ -376,48 +379,9 @@ QWidget#frame_login_main{
                     <height>16777215</height>
                    </size>
                   </property>
-                  <property name="frameShape">
-                   <enum>QFrame::NoFrame</enum>
+                  <property name="text">
+                   <string>Remove</string>
                   </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_6">
-                   <property name="spacing">
-                    <number>0</number>
-                   </property>
-                   <property name="leftMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="topMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="rightMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="bottomMargin">
-                    <number>0</number>
-                   </property>
-                   <item>
-                    <widget class="QPushButton" name="pushButton_remove">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>50</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>80</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Remove</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
                  </widget>
                 </item>
                </layout>

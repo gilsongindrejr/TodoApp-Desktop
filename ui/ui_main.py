@@ -39,16 +39,6 @@ class Ui_Main(object):
 "QPushButton#pushButton_new:pressed{\n"
 "	background-color: rgb(78, 125, 6);\n"
 "}\n"
-"QPushButton{\n"
-"	border-radius:10px;\n"
-"	background-color: rgb(220, 34, 34);\n"
-"}\n"
-"QPushButton#pushButton_remove:hover{\n"
-"	background-color: rgb(212, 26, 26);\n"
-"}\n"
-"QPushButton#pushButton_remove:pressed{\n"
-"	background-color: rgb(201, 15, 15);\n"
-"}\n"
 "QPushButton#pushButton_logout{\n"
 "	border-radius:10px;\n"
 "	background-color: rgb(0, 102, 212);\n"
@@ -57,32 +47,23 @@ class Ui_Main(object):
 "	background-color: rgb(0, 88, 212);\n"
 "}\n"
 "QPushButton#pushButton_logout:pressed{\n"
-"	background-color: rgb("
-                        "0, 73, 212);\n"
+"	background-color: rgb(0, 73, 212);\n"
 "}\n"
 "\n"
-"/* Content */\n"
+"/* Scroll Area */\n"
 "QScrollArea{\n"
 "	background-color: rgb(46, 52, 54);\n"
 "}\n"
 "QWidget#scrollArea_content{\n"
 "	background-color: rgb(46, 52, 54);\n"
 "}\n"
-"QFrame#frame_content{\n"
-"	background-color: rgb(56, 62, 64);\n"
-"}\n"
-"QLineEdit#lineEdit_content{\n"
-"	color:white;\n"
-"	background-color: rgb(46, 52, 54);\n"
-"	border:none;\n"
-"	border-bottom:1px solid white;\n"
-"}\n"
 "\n"
 "/* Frames*/\n"
 "QWidget#frame_login_up{\n"
 "	background-color: #0066D4;\n"
 "}\n"
-"QWidget#frame_login_down{\n"
+"QWidget"
+                        "#frame_login_down{\n"
 "	background-color: #003E7F;\n"
 "}\n"
 "QWidget#frame_login_left{\n"
@@ -186,54 +167,52 @@ class Ui_Main(object):
         sizePolicy.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
         self.scrollArea.setSizePolicy(sizePolicy)
         self.scrollArea.setMaximumSize(QSize(400, 800))
+        self.scrollArea.setStyleSheet(u"/* Frame Content */\n"
+"QLineEdit{\n"
+"	color:white;\n"
+"	background-color: rgb(46, 52, 54);\n"
+"	border:none;\n"
+"	border-bottom:1px solid white;\n"
+"}\n"
+"QPushButton{\n"
+"	border-radius:10px;\n"
+"	background-color: rgb(220, 34, 34);\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(212, 26, 26);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color: rgb(201, 15, 15);\n"
+"}")
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea_content = QWidget()
         self.scrollArea_content.setObjectName(u"scrollArea_content")
         self.scrollArea_content.setGeometry(QRect(0, 0, 384, 400))
         self.verticalLayout_3 = QVBoxLayout(self.scrollArea_content)
+        self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.widget_content = QWidget(self.scrollArea_content)
-        self.widget_content.setObjectName(u"widget_content")
-        self.widget_content.setMinimumSize(QSize(70, 70))
-        self.widget_content.setMaximumSize(QSize(700, 70))
-        self.horizontalLayout_4 = QHBoxLayout(self.widget_content)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.frame_content = QFrame(self.scrollArea_content)
+        self.frame_content.setObjectName(u"frame_content")
+        self.frame_content.setMaximumSize(QSize(16777215, 70))
+        self.frame_content.setFrameShape(QFrame.StyledPanel)
+        self.frame_content.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_4 = QHBoxLayout(self.frame_content)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.frame_content_line = QFrame(self.widget_content)
-        self.frame_content_line.setObjectName(u"frame_content_line")
-        self.frame_content_line.setFrameShape(QFrame.NoFrame)
-        self.frame_content_line.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_7 = QVBoxLayout(self.frame_content_line)
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.lineEdit_content = QLineEdit(self.frame_content_line)
-        self.lineEdit_content.setObjectName(u"lineEdit_content")
+        self.line_content = QLineEdit(self.frame_content)
+        self.line_content.setObjectName(u"line_content")
 
-        self.verticalLayout_7.addWidget(self.lineEdit_content)
+        self.horizontalLayout_4.addWidget(self.line_content)
 
+        self.btn_remove = QPushButton(self.frame_content)
+        self.btn_remove.setObjectName(u"btn_remove")
+        self.btn_remove.setMinimumSize(QSize(0, 50))
+        self.btn_remove.setMaximumSize(QSize(80, 16777215))
 
-        self.horizontalLayout_4.addWidget(self.frame_content_line)
-
-        self.frame_content_btn = QFrame(self.widget_content)
-        self.frame_content_btn.setObjectName(u"frame_content_btn")
-        self.frame_content_btn.setMinimumSize(QSize(0, 0))
-        self.frame_content_btn.setMaximumSize(QSize(80, 16777215))
-        self.frame_content_btn.setFrameShape(QFrame.NoFrame)
-        self.frame_content_btn.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_6 = QVBoxLayout(self.frame_content_btn)
-        self.verticalLayout_6.setSpacing(0)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.pushButton_remove = QPushButton(self.frame_content_btn)
-        self.pushButton_remove.setObjectName(u"pushButton_remove")
-        self.pushButton_remove.setMinimumSize(QSize(0, 50))
-        self.pushButton_remove.setMaximumSize(QSize(80, 16777215))
-
-        self.verticalLayout_6.addWidget(self.pushButton_remove)
+        self.horizontalLayout_4.addWidget(self.btn_remove)
 
 
-        self.horizontalLayout_4.addWidget(self.frame_content_btn)
-
-
-        self.verticalLayout_3.addWidget(self.widget_content, 0, Qt.AlignTop)
+        self.verticalLayout_3.addWidget(self.frame_content, 0, Qt.AlignTop)
 
         self.scrollArea.setWidget(self.scrollArea_content)
 
@@ -269,6 +248,6 @@ class Ui_Main(object):
         Main.setWindowTitle(QCoreApplication.translate("Main", u"todoApp", None))
         self.pushButton_new.setText(QCoreApplication.translate("Main", u"New", None))
         self.pushButton_logout.setText(QCoreApplication.translate("Main", u"Logout", None))
-        self.pushButton_remove.setText(QCoreApplication.translate("Main", u"Remove", None))
+        self.btn_remove.setText(QCoreApplication.translate("Main", u"Remove", None))
     # retranslateUi
 
