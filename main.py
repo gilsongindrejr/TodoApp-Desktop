@@ -9,7 +9,7 @@ from ui.ui_login import Ui_Login
 from ui.ui_register import Ui_Register
 from ui.ui_main import Ui_Main
 from models.user import User
-from auth import auth_user, auth_pass, auth_email
+from auth import auth_user, auth_pass_reg, auth_pass_log, auth_email
 
 
 class MainWindow(QWidget):
@@ -33,7 +33,7 @@ class MainWindow(QWidget):
         # Button connections
         self.ui_login.pushButton_register.clicked.connect(self.register_window)
         self.ui_register.pushButton_back.clicked.connect(self.login_window)
-        self.ui_login.pushButton_login.clicked.connect(self.main_window)
+        self.ui_login.pushButton_login.clicked.connect(self.login)
         self.ui_main.pushButton_logout.clicked.connect(self.login_window)
         self.ui_main.pushButton_new.clicked.connect(self.new)
         self.ui_register.pushButton_register.clicked.connect(self.register)
@@ -61,11 +61,6 @@ class MainWindow(QWidget):
         self.ui_register_window.hide()
         self.ui_main_window.hide()
 
-    # Show app window
-    def main_window(self):
-        '''Show main window'''
-        self.ui_main_window.show()
-        self.hide()
 
     # New item function
     def new(self):
@@ -129,7 +124,7 @@ class MainWindow(QWidget):
         db_email = cursor.fetchall()
         # Call the authentication functions
         user_auth = auth_user(user.name, db_name)
-        pass_auth = auth_pass(user.password, user.password_c)
+        pass_auth = auth_pass_reg(user.password, user.password_c)
         email_auth = auth_email(user.email, db_email)
         # Let or not user register
         if user_auth == 0:
@@ -151,7 +146,26 @@ class MainWindow(QWidget):
             self.ui_register.label_info.setText('Username already exists')
 
     def login(self):
-        pass
+        self.db_check()
+        name = self.ui_login.lineEdit_user.text()
+        password = self.ui_login.lineEdit_pass.text()
+        cursor = self.dbase.cursor()
+        cursor.execute(f"SELECT username FROM users WHERE username='{name}'")
+        db_name = cursor.fetchall()
+        cursor.execute(f"SELECT password FROM users WHERE password='{password}'")
+        db_password = cursor.fetchall()
+        user_auth = auth_user(name, db_name)
+        pass_auth = auth_pass_log(password, db_password)
+        if user_auth:
+            if pass_auth:
+                print('Login Successful')
+                self.ui_main_window.show()
+                self.hide()
+            else:
+                print("Incorrect password")
+        else:
+            print("Username doesn't exists")
+
 
 
 if __name__ == '__main__':
