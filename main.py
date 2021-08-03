@@ -89,8 +89,8 @@ class MainWindow(QWidget):
         self.counter += 1
 
     # remove item function
-    def remove(self):
-        pass
+    def remove(self, btn):
+        btn.parent().deleteLater()
 
 
 if __name__ == '__main__':

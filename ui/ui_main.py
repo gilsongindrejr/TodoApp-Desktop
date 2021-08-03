@@ -192,28 +192,6 @@ class Ui_Main(object):
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.frame_content = QFrame(self.scrollArea_content)
-        self.frame_content.setObjectName(u"frame_content")
-        self.frame_content.setMaximumSize(QSize(16777215, 70))
-        self.frame_content.setFrameShape(QFrame.StyledPanel)
-        self.frame_content.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_4 = QHBoxLayout(self.frame_content)
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.line_content = QLineEdit(self.frame_content)
-        self.line_content.setObjectName(u"line_content")
-
-        self.horizontalLayout_4.addWidget(self.line_content)
-
-        self.btn_remove = QPushButton(self.frame_content)
-        self.btn_remove.setObjectName(u"btn_remove")
-        self.btn_remove.setMinimumSize(QSize(0, 50))
-        self.btn_remove.setMaximumSize(QSize(80, 16777215))
-
-        self.horizontalLayout_4.addWidget(self.btn_remove)
-
-
-        self.verticalLayout_3.addWidget(self.frame_content, 0, Qt.AlignTop)
-
         self.scrollArea.setWidget(self.scrollArea_content)
 
         self.verticalLayout_2.addWidget(self.scrollArea)
@@ -248,6 +226,5 @@ class Ui_Main(object):
         Main.setWindowTitle(QCoreApplication.translate("Main", u"todoApp", None))
         self.pushButton_new.setText(QCoreApplication.translate("Main", u"New", None))
         self.pushButton_logout.setText(QCoreApplication.translate("Main", u"Logout", None))
-        self.btn_remove.setText(QCoreApplication.translate("Main", u"Remove", None))
     # retranslateUi
 
