@@ -39,6 +39,16 @@ class Ui_Main(object):
 "QPushButton#pushButton_new:pressed{\n"
 "	background-color: rgb(78, 125, 6);\n"
 "}\n"
+"QPushButton#pushButton_save{\n"
+"	border-radius:10px;\n"
+"	background-color: rgb(242, 85, 9);\n"
+"}\n"
+"QPushButton#pushButton_save:hover{\n"
+"	background-color: rgb(242, 71, 9);\n"
+"}\n"
+"QPushButton#pushButton_save:pressed{\n"
+"	background-color: rgb(242, 56, 9);\n"
+"}\n"
 "QPushButton#pushButton_logout{\n"
 "	border-radius:10px;\n"
 "	background-color: rgb(0, 102, 212);\n"
@@ -47,7 +57,8 @@ class Ui_Main(object):
 "	background-color: rgb(0, 88, 212);\n"
 "}\n"
 "QPushButton#pushButton_logout:pressed{\n"
-"	background-color: rgb(0, 73, 212);\n"
+"	background-color: rgb(0, 73, 21"
+                        "2);\n"
 "}\n"
 "\n"
 "/* Scroll Area */\n"
@@ -62,8 +73,7 @@ class Ui_Main(object):
 "QWidget#frame_login_up{\n"
 "	background-color: #0066D4;\n"
 "}\n"
-"QWidget"
-                        "#frame_login_down{\n"
+"QWidget#frame_login_down{\n"
 "	background-color: #003E7F;\n"
 "}\n"
 "QWidget#frame_login_left{\n"
@@ -116,10 +126,10 @@ class Ui_Main(object):
         self.frame_2.setMaximumSize(QSize(16777215, 50))
         self.frame_2.setFrameShape(QFrame.NoFrame)
         self.frame_2.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_2 = QHBoxLayout(self.frame_2)
-        self.horizontalLayout_2.setSpacing(0)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_9 = QHBoxLayout(self.frame_2)
+        self.horizontalLayout_9.setSpacing(0)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.frame_3 = QFrame(self.frame_2)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setFrameShape(QFrame.NoFrame)
@@ -136,7 +146,25 @@ class Ui_Main(object):
         self.horizontalLayout_3.addWidget(self.pushButton_new)
 
 
-        self.horizontalLayout_2.addWidget(self.frame_3)
+        self.horizontalLayout_9.addWidget(self.frame_3)
+
+        self.frame_4 = QFrame(self.frame_2)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setFrameShape(QFrame.NoFrame)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_8 = QHBoxLayout(self.frame_4)
+        self.horizontalLayout_8.setSpacing(0)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.horizontalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.pushButton_save = QPushButton(self.frame_4)
+        self.pushButton_save.setObjectName(u"pushButton_save")
+        self.pushButton_save.setMinimumSize(QSize(0, 50))
+        self.pushButton_save.setMaximumSize(QSize(80, 16777215))
+
+        self.horizontalLayout_8.addWidget(self.pushButton_save)
+
+
+        self.horizontalLayout_9.addWidget(self.frame_4)
 
         self.frame_5 = QFrame(self.frame_2)
         self.frame_5.setObjectName(u"frame_5")
@@ -154,7 +182,7 @@ class Ui_Main(object):
         self.horizontalLayout_5.addWidget(self.pushButton_logout)
 
 
-        self.horizontalLayout_2.addWidget(self.frame_5)
+        self.horizontalLayout_9.addWidget(self.frame_5)
 
 
         self.verticalLayout_2.addWidget(self.frame_2)
@@ -225,6 +253,7 @@ class Ui_Main(object):
     def retranslateUi(self, Main):
         Main.setWindowTitle(QCoreApplication.translate("Main", u"todoApp", None))
         self.pushButton_new.setText(QCoreApplication.translate("Main", u"New", None))
+        self.pushButton_save.setText(QCoreApplication.translate("Main", u"Save", None))
         self.pushButton_logout.setText(QCoreApplication.translate("Main", u"Logout", None))
     # retranslateUi
 
