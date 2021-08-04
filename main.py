@@ -48,7 +48,7 @@ class MainWindow(QWidget):
         self.ui_login.pushButton_register.clicked.connect(self.register_window)
         self.ui_register.pushButton_back.clicked.connect(self.login_window)
         self.ui_login.pushButton_login.clicked.connect(self.login)
-        self.ui_main.pushButton_logout.clicked.connect(self.login_window)
+        self.ui_main.pushButton_logout.clicked.connect(self.logout)
         self.ui_main.pushButton_new.clicked.connect(self.new)
         self.ui_register.pushButton_register.clicked.connect(self.register)
         self.ui_main.pushButton_save.clicked.connect(lambda: self.save(self.user_logged))
@@ -56,6 +56,11 @@ class MainWindow(QWidget):
         # Create button group and slot
         self.btn_group = QButtonGroup(self.ui_main.scrollArea_content)
         self.btn_group.idClicked.connect(self.remove)
+
+        # Set echo mode for password line edit
+        self.ui_login.lineEdit_pass.setEchoMode(QLineEdit.Password)
+        self.ui_register.lineEdit_pass.setEchoMode(QLineEdit.Password)
+        self.ui_register.lineEdit_confirm.setEchoMode(QLineEdit.Password)
 
     # Show register window
     def register_window(self):
@@ -147,7 +152,6 @@ class MainWindow(QWidget):
             self.dbase.commit()
         self.dbase.close()
 
-
     def register(self):
         """Register new user"""
         self.db_check()
@@ -222,6 +226,12 @@ class MainWindow(QWidget):
             self.ui_main.btn_remove.setObjectName(f"btn_remove_{text_id}")
             self.ui_main.btn_remove.parent().children()[1].setText(text)
         self.dbase.close()
+
+    def logout(self):
+        for button in self.btn_group.buttons():
+            button.parent().deleteLater()
+        self.hide()
+        self.login_window()
 
 
 
