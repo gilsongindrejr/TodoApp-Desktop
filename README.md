@@ -1,1 +1,6 @@
-Todo app in python with qt framework using pyside2 module.
+# Todo App - Desktop
+
+App made to learn pyqt/pyside2 and development of desktop apps.
+
+# Table of contents
+- 
